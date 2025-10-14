@@ -1,0 +1,13 @@
+.login-card{
+    width: 30rem;
+    background-color: #212529;
+    color: white;
+}
+.login-container{
+    display: flex;
+    width: 100%;
+    max-width: 60%;
+    margin: 0 auto;
+    padding-top: 10rem;
+    justify-content: center;
+}
