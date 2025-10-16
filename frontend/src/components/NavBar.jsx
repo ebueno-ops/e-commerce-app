@@ -25,7 +25,15 @@ function NavBar() {
                 </Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href="/home">Home</Nav.Link>
-                    <Nav.Link href="/products">Products</Nav.Link>
+
+                    {role === "admin" ?(
+                        <Nav.Link href="/admin-dashboard">Admin Dashboard</Nav.Link>
+                    ) : role === "seller" ? (
+                        <Nav.Link href="/seller-dashboard">Seller Dashboard</Nav.Link>
+                    ) : (
+                        <Nav.Link href="/products">Products</Nav.Link>)
+                    }
+
                 </Nav>
                 <Nav className="ms-auto">
                     {!token ? (
