@@ -6,9 +6,10 @@ import HomePage from "./components/HomePage";
 import LoginPage from "./components/LoginPage";
 import ProductsPage from "./components/ProductsPage";
 import ProtectedRoute from "./components/ProtectedRoute";
-import AdminDashboard from "./components/AdminDashboard";
-import SellerDashboard from "./components/SellerDashboard";
-import AddProduct from "./components/AddProduct";
+import AdminDashboard from "./components/Admin/AdminDashboard";
+import SellerDashboard from "./components/Seller/SellerDashboard";
+import AddProduct from "./components/Admin/AddProduct";
+import AdminProductList from "./components/Admin/AdminProductList";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             {/*admin routes*/}
             <Route element={<ProtectedRoute authRole="admin" />}>
                 <Route path={"/admin-dashboard"} element={<AdminDashboard/>}/>
+                <Route path={"/admin-item-list"} element={<AdminProductList/>}/>
                 <Route path={"/products/add"} element={<AddProduct/>}/>
             </Route>
             {/*seller routes*/}
