@@ -1,3 +1,26 @@
+import React, {useEffect, useState} from 'react';
+import axios from "axios";
+import {Col,Container,Row} from "react-bootstrap";
+import SellerItemCard from "./SellerItemCard";
+
+function SellerProductList() {
+    const [items, setItems] = useState([]);
+
+    const role = localStorage.getItem("role");
+
+    //fetch products
+    useEffect(() => {
+        const fetch = async () => {
+            try{
+                const res = await axios.get("http://localhost:8000/api/products/");
+                setItems(res.data);
+            }catch(e){
+                console.log(e);
+            }
+        }
+        fetch();
+    }, []);
+
     const availableItems = items.filter(
         (item) =>
             item.available ===1
@@ -38,4 +61,12 @@
                             promo_price = {item.promo_price}
                             available = {item.available}
                             role = {role}
+                        />
+                    </Col>
+                ))}
+            </Row>
+        </Container>
+    );
+}
+
 export default SellerProductList;
