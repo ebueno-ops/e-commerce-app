@@ -1,7 +1,8 @@
 import express from "express";
 import { getProducts } from "../controllers/ProductController.js";
 import {validateAdmin} from "../middleware/validateAdmin.js";
-import {addProduct,editProduct, deleteProduct} from "../models/ProductModel.js";
+import {validateSeller} from "../middleware/validateSeller.js";
+import {addProduct, editProduct, deleteProduct, setAvailability} from "../models/ProductModel.js";
 
 
 
@@ -43,7 +44,16 @@ router.delete("/delete/:id", validateAdmin, async (req,res) => {
     });
 });
 
-// //seller set availability
-// router.put();
+
+//seller set availability
+router.put("/availability/:id", validateSeller, async (req,res) => {
+    const {id} = req.params;
+    const {available, role} = req.body;
+
+    setAvailability({id,available,role}, (err) =>{
+        if (err) return res.json(err);
+        return res.json({message: "Product availability has been updated"});
+    });
+});
 
 export default router;
