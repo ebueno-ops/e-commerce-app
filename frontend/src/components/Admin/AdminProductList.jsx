@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import ItemCard from "../ItemCard";
 import {Col,Container,Row} from "react-bootstrap";
 import AdminItemCard from "./AdminItemCard";
 
@@ -25,7 +24,7 @@ function AdminProductList() {
         <Container className="mt-2">
             <Row className="g-2">
                 {items.map(item=>(
-                    <Col key={item.id} xs={1} md={6} lg={4}>
+                    <Col key={item.id} xs={12} md={6} lg={4}>
                         <AdminItemCard
                             id = {item.id}
                             image = {item.image}

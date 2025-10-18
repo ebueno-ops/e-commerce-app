@@ -22,12 +22,12 @@ export default function Items() {
 
     return (
         <Container className="container mt-4">
-            <Row className="g-4">
+            <Row className="g-2">
                 {/* shows only available items */}
                 {items
                     .filter(item => item.available === 1)
                     .map(item => (
-                    <Col key={item.id} xs={1} md={6} lg={4}>
+                    <Col key={item.id} xs={12} md={6} lg={4}>
                         <ItemCard
                             id = {item.id}
                             image = {item.image}

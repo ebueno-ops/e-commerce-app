@@ -28,7 +28,7 @@ function SellerProductList() {
 
     const unavailableItems = items.filter(
         (item) =>
-            item.available ===0
+            item.available ===0 || item.available === null
     );
 
     return (
@@ -36,7 +36,7 @@ function SellerProductList() {
             <Row className="g-2">
                 <h3>Available Items</h3>
                 {availableItems.map(item=>(
-                    <Col key={item.id} xs={1} md={6} lg={4}>
+                    <Col key={item.id} xs={12} md={6} lg={4}>
                         <SellerItemCard
                             id = {item.id}
                             image = {item.image}
