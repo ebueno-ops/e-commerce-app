@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Button, Card, Form} from "react-bootstrap";
-import ErrorPage from "../ErrorPage";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
