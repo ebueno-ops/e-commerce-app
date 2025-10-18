@@ -20,3 +20,9 @@ export const deleteProduct = (productData, call) =>{
     const id = productData;
     db.query(query,[id], call);
 }
+
+export const setAvailability = (productData, call) =>{
+    const query = "UPDATE items SET available = ? WHERE id = ?;";
+    const {available, id } = productData;
+    db.query(query,[available, id], call);
+}
